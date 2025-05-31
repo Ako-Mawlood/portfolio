@@ -1,5 +1,5 @@
 {
-    "semi": false,
-    "bracketSpacing": true,
-    "arrowParens": "avoid"
+  "semi": false,
+  "bracketSpacing": true,
+  "arrowParens": "avoid"
 }

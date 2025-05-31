@@ -1,26 +1,30 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import eslintPluginUnusedImports from "eslint-plugin-unused-imports";
-import unicorn from "eslint-plugin-unicorn";
+import { FlatCompat } from "@eslint/eslintrc"
+import eslintPluginUnusedImports from "eslint-plugin-unused-imports"
+import unicorn from "eslint-plugin-unicorn"
 const compat = new FlatCompat({
   baseDirectory: process.cwd(),
-});
+})
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript",  "plugin:prettier/recommended" ),
+  ...compat.extends(
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:prettier/recommended",
+  ),
   {
     plugins: {
       "unused-imports": eslintPluginUnusedImports,
-      "unicorn":unicorn
+      unicorn: unicorn,
     },
     rules: {
       "prettier/prettier": "error",
       "no-template-curly-in-string": "error",
       "unused-imports/no-unused-imports": "error",
       "no-duplicate-imports": "error",
-      "quotes": ["error", "double", { avoidEscape: true }],
+      quotes: ["error", "double", { avoidEscape: true }],
       "react/jsx-key": "error",
       "react/jsx-no-duplicate-props": "error",
-      "react/jsx-pascal-case": "error", 
+      "react/jsx-pascal-case": "error",
       "no-console": "warn",
       "no-debugger": "warn",
       "unused-imports/no-unused-vars": [
@@ -29,6 +33,6 @@ const eslintConfig = [
       ],
     },
   },
-];
+]
 
-export default eslintConfig;
+export default eslintConfig
