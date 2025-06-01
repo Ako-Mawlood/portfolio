@@ -1,8 +1,8 @@
 import { cnoise21 } from "@/modules/glsl/noise"
-
 export const fragmentShader = `
 uniform vec2 u_mouse;
 uniform vec2 u_resolution;
+uniform float u_scroll;  // New scroll uniform
 varying vec2 v_uv;
 
 ${cnoise21}
@@ -19,9 +19,10 @@ void main() {
   vec2 uv = v_uv;
   vec2 mouse = u_mouse;
   
-  vec2 seed1 = uv * 2.0 + mouse * 0.5;
-  vec2 seed2 = uv * 3.5 + mouse * 0.3; // u_time removed
-  vec2 seed3 = uv * 1.2 + mouse * 0.8; // u_time removed
+  // Add scroll effect to the noise seeds
+  vec2 seed1 = uv * 2.0 + mouse * 0.5 + vec2(0.0, u_scroll * 0.5);
+  vec2 seed2 = uv * 3.5 + mouse * 0.3 + vec2(0.0, u_scroll * 1.0);
+  vec2 seed3 = uv * 1.2 + mouse * 0.8 + vec2(0.0, u_scroll * 1.5);
   
   float noise1 = cnoise21(seed1);
   float noise2 = cnoise21(seed2) * 0.5;
@@ -38,7 +39,7 @@ void main() {
   vec3 color1 = vec3(0.0, 0.0, 0.0);
   vec3 color2 = vec3(0.1, 0.2, 0.55);
   vec3 color3 = vec3(0.4, 0.3, 0.95);
-  vec3 color4 = vec3(0.0, 0.0, 0.0);
+  vec3 color4 = vec3(0.1, 0.0, 0.0);
   vec3 black = vec3(0.02, 0.02, 0.05);
   
   float threshold1 = -0.3 + mouseEffect * 0.5;
