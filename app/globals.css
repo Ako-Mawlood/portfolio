@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Roobert";
+  src: url("/fonts/Roobert/Roobert-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -21,7 +28,9 @@
 
 body {
   background: var(--background);
+  font-family: "Roobert", sans-serif;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+}

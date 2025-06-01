@@ -18,6 +18,7 @@ const eslintConfig = [
     },
     rules: {
       "prettier/prettier": "error",
+      "no-multi-spaces": "error",
       "no-template-curly-in-string": "error",
       "unused-imports/no-unused-imports": "error",
       "no-duplicate-imports": "error",

@@ -14,7 +14,7 @@ export default function Background() {
       uniforms: {
         u_mouse: { value: new THREE.Vector2(0, 0) },
         u_resolution: { value: new THREE.Vector2(1920, 1080) },
-        u_scroll: { value: 0 }, // Add scroll uniform
+        u_scroll: { value: 0 },
       },
       vertexShader,
       fragmentShader,
@@ -23,7 +23,6 @@ export default function Background() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Normalize scroll position (0-1 range)
       const scrollY = window.scrollY
       const maxScroll = document.body.scrollHeight - window.innerHeight
       setScroll(maxScroll > 0 ? scrollY / maxScroll : 0)
@@ -34,13 +33,13 @@ export default function Background() {
   }, [])
 
   useEffect(() => {
-    shaderMaterial.uniforms.u_scroll.value = scroll
+    shaderMaterial.uniforms.u_scroll.value = scroll * 3
   }, [scroll, shaderMaterial])
 
   useFrame(({ mouse }) => {
     if (shaderMaterial) {
-      const targetX = (mouse.x + 1) * 0.5
-      const targetY = (mouse.y + 1) * 0.5
+      const targetX = (mouse.x + 1) * 0.8
+      const targetY = (mouse.y + 1) * 0.8
 
       mouseRef.current.x += (targetX - mouseRef.current.x) * 0.05
       mouseRef.current.y += (targetY - mouseRef.current.y) * 0.05

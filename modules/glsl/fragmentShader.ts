@@ -39,7 +39,7 @@ void main() {
   vec3 color1 = vec3(0.0, 0.0, 0.0);
   vec3 color2 = vec3(0.1, 0.2, 0.55);
   vec3 color3 = vec3(0.4, 0.3, 0.95);
-  vec3 color4 = vec3(0.0, 0.0, 0.0);
+  vec3 color4 = vec3(0.1, 0.0, 0.0);
   vec3 black = vec3(0.02, 0.02, 0.05);
   
   float threshold1 = -0.3 + mouseEffect * 0.5;
