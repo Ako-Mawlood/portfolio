@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef, useMemo, useEffect, useState } from "react"
 import * as THREE from "three"
 import { Plane } from "@react-three/drei"
@@ -8,6 +10,7 @@ import { vertexShader } from "@/modules/glsl/vertexShader"
 export default function Background() {
   const mouseRef = useRef(new THREE.Vector2(0, 0))
   const [scroll, setScroll] = useState(0)
+  const startedRef = useRef(false)
 
   const shaderMaterial = useMemo(() => {
     return new THREE.ShaderMaterial({
@@ -36,16 +39,23 @@ export default function Background() {
     shaderMaterial.uniforms.u_scroll.value = scroll * 3
   }, [scroll, shaderMaterial])
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      startedRef.current = true
+    }, 5500)
+    return () => clearTimeout(timer)
+  }, [])
+
   useFrame(({ mouse }) => {
-    if (shaderMaterial) {
-      const targetX = (mouse.x + 1) * 0.8
-      const targetY = (mouse.y + 1) * 0.8
+    if (!startedRef.current) return
 
-      mouseRef.current.x += (targetX - mouseRef.current.x) * 0.05
-      mouseRef.current.y += (targetY - mouseRef.current.y) * 0.05
+    const targetX = (mouse.x + 1) * 0.8
+    const targetY = (mouse.y + 1) * 0.8
 
-      shaderMaterial.uniforms.u_mouse.value.copy(mouseRef.current)
-    }
+    mouseRef.current.x += (targetX - mouseRef.current.x) * 0.05
+    mouseRef.current.y += (targetY - mouseRef.current.y) * 0.05
+
+    shaderMaterial.uniforms.u_mouse.value.copy(mouseRef.current)
   })
 
   return (
