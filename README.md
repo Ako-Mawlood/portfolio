@@ -1,4 +1,4 @@
-# Portfolio Website [Live](https://ako.dev)
+# Portfolio Website [Live](https://akooo.vercel.app/)
 
 My personal portfolio showcasing projects, skills, and professional experience.
 
