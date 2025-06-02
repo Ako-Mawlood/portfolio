@@ -43,7 +43,7 @@ export default function HomePage() {
     <div className="relative">
       <div
         ref={loadingRef}
-        className="text fixed inset-0 z-50 flex flex-col items-center justify-center bg-black transition-opacity"
+        className="text fixed inset-0 z-50 flex flex-col items-center justify-center bg-black text-white transition-opacity"
       >
         <div
           className={clsx("transition-opacity duration-500", {
