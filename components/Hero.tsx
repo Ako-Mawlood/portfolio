@@ -85,7 +85,7 @@ export default function Hero() {
             delay={6.5}
           />
           <Button
-            href="https://www.linkedin.com/in/ako-mawlood-1b8646252/"
+            href="https://x.com/AkoMawlood"
             text="X (Twitter)"
             delay={6.5}
           />
