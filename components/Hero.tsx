@@ -37,7 +37,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true)
-    }, 7000)
+    }, 6500)
 
     return () => clearTimeout(timer)
   }, [])
@@ -141,7 +141,11 @@ export default function Hero() {
             className="px-0 text-sm font-bold"
             delay={6.5}
           />
-          <AnimatedText text="ako.mawlood01@gmail.com" delay={6.5} />
+          <AnimatedText
+            text="ako.mawlood01@gmail.com"
+            delay={6.5}
+            className="hidden sm:block"
+          />
         </div>
         <p className="pointer-events-auto hidden w-62 md:block">
           <AnimatedText

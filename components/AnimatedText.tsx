@@ -29,11 +29,7 @@ export default function AnimatedText({ text, className, delay = 0.5 }: Props) {
   )
 
   return (
-    <span
-      ref={containerRef}
-      className={`inline-block ${className || ""}`}
-      aria-label={text}
-    >
+    <span ref={containerRef} className={className} aria-label={text}>
       {text.split("").map((char, index) => (
         <span
           key={index}
