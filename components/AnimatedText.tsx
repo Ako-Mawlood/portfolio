@@ -17,7 +17,7 @@ type Props = {
 export default function AnimatedText({
   text,
   className,
-  delay = 0.5,
+  delay = 0,
   isOnScroll = false,
   duration = 1,
 }: Props) {
@@ -34,10 +34,8 @@ export default function AnimatedText({
         scrollTrigger: isOnScroll
           ? {
               trigger: containerRef.current,
-              start: "top 70%",
-
+              start: "bottom bottom",
               toggleActions: "play none none none",
-              markers: true,
               once: true,
             }
           : null,

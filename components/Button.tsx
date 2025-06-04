@@ -26,20 +26,12 @@ export default function Button({ href, text, className, delay }: ButtonProps) {
   return href ? (
     <Link
       href={href}
-      className={clsx(
-        className,
-        "group relative w-fit bg-transparent px-0 md:px-2",
-      )}
+      className={(clsx("group relative w-fit px-0 md:px-2"), className)}
     >
       {content}
     </Link>
   ) : (
-    <button
-      className={clsx(
-        className,
-        "group relative w-fit bg-transparent px-0 md:px-2",
-      )}
-    >
+    <button className={clsx("group relative w-fit px-0 md:px-2", className)}>
       {content}
     </button>
   )
