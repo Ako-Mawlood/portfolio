@@ -33,5 +33,9 @@ body {
 }
 
 .text-heading{
-  @apply text-[12vw] w-fit sm:text-6xl md:text-[5rem] lg:text-8xl 2xl:text-9xl
+  @apply text-5xl leading-[0.85] font-light tracking-tight  md:text-7xl lg:text-8xl
+  
+}
+html {
+  scroll-behavior: smooth;
 }

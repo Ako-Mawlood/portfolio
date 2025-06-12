@@ -5,14 +5,16 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative flex w-full flex-col justify-between gap-10 bg-violet-50 p-5 text-black md:h-[60vh] md:gap-0 md:p-10"
+      className="relative flex w-full flex-col justify-between gap-10 bg-neutral-50 px-6 py-20 text-black md:h-[60vh] md:gap-0 lg:px-16 xl:px-24"
     >
       <AnimatedText
         duration={0.5}
         delay={0.5}
-        className="text-6xl md:w-[47.9rem]"
+        className="text-7xl tracking-tighter"
       >
-        +2 year of experience with Githhub open source
+        Over 1 year of experience,
+        <br /> contributing to open-source
+        <br /> on GitHub
       </AnimatedText>
       <div className="ml-auto flex flex-col gap-10 md:w-[50rem]">
         <AnimatedText
@@ -20,10 +22,9 @@ export default function About() {
           delay={0.5}
           className="inline-block text-sm md:text-xl"
         >
-          Daniel, a freelance web designer and Webflow developer based in
-          Bournemouth, UK. s a Webflow Premium Partner and member of the
-          Awwwards Young Jury, I deliver standout digital projects with
-          impressive turnaround times and creativity.
+          Hi, I’m Ako Mawlood — a freelance front-end developer from the
+          Kurdistan Region. I build fast, modern websites with React, Next.js,
+          and TypeScript, focusing on clean design and smooth user experiences.
         </AnimatedText>
         <div className="flex gap-5">
           <Button

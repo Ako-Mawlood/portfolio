@@ -82,7 +82,7 @@ export default function Project() {
       scrollTrigger: {
         trigger: "#image2",
         start: "top 20%",
-        end: "bottom 0%",
+        end: "bottom -100%",
         scrub: true,
       },
     })
@@ -91,20 +91,21 @@ export default function Project() {
   return (
     <section
       id="projects"
-      className="flex w-full flex-col gap-10 bg-black p-10 text-white"
+      className="mb-[25rem] flex h-fit w-full flex-col gap-10 bg-black px-6 py-20 text-white lg:px-16 xl:px-24"
     >
-      <h1 id="projects-header1" className="text-heading">
-        Selected
-      </h1>
-      <h1 id="projects-header2" className="text-heading">
-        Works
-      </h1>
-
+      <div className="leading-tight">
+        <h1 id="projects-header1" className="text-heading">
+          Selected
+        </h1>
+        <h1 id="projects-header2" className="text-heading">
+          Works
+        </h1>
+      </div>
       {projects.map((project, index) => (
         <div
           key={project.name}
           className={clsx(
-            "relative my-10 flex h-[20rem] w-full flex-col items-start justify-between gap-5 transition-opacity duration-700 lg:flex-row",
+            "relative my-10 flex w-full flex-col items-start justify-between gap-5 transition-opacity duration-700 md:h-[20rem] lg:flex-row",
             {
               "opacity-100": hoverIndex === index || hoverIndex === null,
               "md:opacity-10": hoverIndex !== index && hoverIndex !== null,
@@ -113,7 +114,7 @@ export default function Project() {
           onMouseEnter={() => setHoverIndex(index)}
           onMouseLeave={() => setHoverIndex(null)}
         >
-          <h1 className="h-full text-7xl lg:max-w-2/12">{project.number}</h1>
+          <h1 className="text-7xl lg:max-w-2/12">{project.number}</h1>
           <AnimatedText isOnScroll={true} duration={0.5} className="text-5xl">
             {project.name}
           </AnimatedText>
@@ -138,7 +139,7 @@ export default function Project() {
           </div>
           <div
             id="image-container"
-            className="relative h-[20rem] overflow-hidden lg:max-w-4/12"
+            className="relative h-fit overflow-hidden md:h-[20rem] lg:max-w-4/12"
           >
             <Image
               id={project.id}
