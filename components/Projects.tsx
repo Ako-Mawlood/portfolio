@@ -15,37 +15,33 @@ if (typeof window !== "undefined") {
 
 const projects = [
   {
-    id: "{01}",
+    id: "image1",
+    number: "01",
     name: "Penwwws.com",
     description:
       "Penwwws.com is a modern blog platform built with Next.js, React, TypeScript, and Tailwind CSS. It features real-time comments, user authentication, responsive design, and uses ShadCN/UI, Cloudinary, and Zod for a seamless publishing experience.",
     image: "/images/penwwws.png",
-    link: "https://penwwws.com",
+    liveLink: "https://penwwws.com",
+    githubLink: "https://github.com/ako-mawlood/penwwws-frontend",
   },
   {
-    id: "{02}",
+    id: "image2",
+    number: "02",
     name: "Post Room",
     description:
       "A custom blog post system that includes user roles, real-time interaction, and an optimized developer experience using Next.js, React, TypeScript, Tailwind CSS, and advanced form handling with Zod.",
     image: "/images/post-room.png",
-    link: "https://post-room.vercel.app",
-  },
-  {
-    id: "{03}",
-    name: "Weather",
-    description:
-      "A custom blog post system that includes user roles, real-time interaction, and an optimized developer experience using Next.js, React, TypeScript, Tailwind CSS, and advanced form handling with Zod.",
-    image: "/images/weather.png",
-    link: "https://github.com/Ako-Mawlood/weather-project",
+    liveLink: "https://post-room.vercel.app",
+    githubLink: "https://github.com/ako-mawlood/post-room",
   },
 ]
 
 export default function Project() {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
   useGSAP(() => {
-    gsap.to("#projects-container", {
+    gsap.to("#projects", {
       scrollTrigger: {
-        trigger: "#projects-container",
+        trigger: "#projects",
         scrub: true,
         toggleActions: "pause pause pause pause",
         start: "top 0%",
@@ -61,18 +57,41 @@ export default function Project() {
       duration: 1,
       ease: "power2.out",
     })
+
     gsap.to("#projects-header2", {
-      scrollTrigger: "#projects-header2",
+      scrollTrigger: {
+        trigger: "#projects-header2",
+      },
       x: 200,
       duration: 1,
       ease: "power2.out",
+    })
+
+    gsap.to("#image1", {
+      y: "-20%",
+      scrollTrigger: {
+        trigger: "#image1",
+        start: "top center",
+        scrub: true,
+      },
+    })
+
+    gsap.to("#image2", {
+      y: "-20%",
+
+      scrollTrigger: {
+        trigger: "#image2",
+        start: "top 20%",
+        end: "bottom 0%",
+        scrub: true,
+      },
     })
   })
 
   return (
     <section
-      id="projects-container"
-      className="flex w-full flex-col bg-black p-10 text-white"
+      id="projects"
+      className="flex w-full flex-col gap-10 bg-black p-10 text-white"
     >
       <h1 id="projects-header1" className="text-heading">
         Selected
@@ -85,47 +104,49 @@ export default function Project() {
         <div
           key={project.name}
           className={clsx(
-            "relative my-10 flex w-full flex-col items-start justify-between p-10 transition-opacity duration-[1000ms] sm:flex-row",
+            "relative my-10 flex h-[20rem] w-full flex-col items-start justify-between gap-5 transition-opacity duration-700 lg:flex-row",
             {
               "opacity-100": hoverIndex === index || hoverIndex === null,
-              "opacity-10": hoverIndex !== index,
+              "md:opacity-10": hoverIndex !== index && hoverIndex !== null,
             },
           )}
           onMouseEnter={() => setHoverIndex(index)}
           onMouseLeave={() => setHoverIndex(null)}
         >
-          <AnimatedText
-            text={project.id}
-            isOnScroll={true}
-            className="absolute top-10 left-10 text-lg"
-          />
-          <div className="h-full sm:max-w-2/12"></div>
-          <AnimatedText
-            text={project.name}
-            isOnScroll={true}
-            duration={0.5}
-            className="text-5xl"
-          />
-          <div className="flex max-w-96 flex-col gap-10 text-sm">
-            <AnimatedText
-              text={project.description}
-              className="text-lg"
-              isOnScroll={true}
-              duration={0.5}
-            />
-            <Button
-              text="View Project"
-              href={project.link}
-              className="text-md bg-white font-bold text-black"
-            />
+          <h1 className="h-full text-7xl lg:max-w-2/12">{project.number}</h1>
+          <AnimatedText isOnScroll={true} duration={0.5} className="text-5xl">
+            {project.name}
+          </AnimatedText>
+          <div className="flex flex-col gap-10 text-sm lg:max-w-96">
+            <AnimatedText className="text-lg" isOnScroll={true} duration={0.5}>
+              {project.description}
+            </AnimatedText>
+            <div className="flex items-center gap-5">
+              <Button
+                href={project.liveLink}
+                className="text-md w-fit rounded-full bg-white px-3 py-1 font-bold text-black"
+              >
+                Live
+              </Button>
+              <Button
+                href={project.githubLink}
+                className="text-md w-fit rounded-full border border-white px-3 py-1 font-bold text-white"
+              >
+                Github
+              </Button>
+            </div>
           </div>
-          <div className="relative h-full sm:max-w-2/12">
+          <div
+            id="image-container"
+            className="relative h-[20rem] overflow-hidden lg:max-w-4/12"
+          >
             <Image
+              id={project.id}
               src={project.image}
-              width="600"
+              width="1500"
               height="500"
               alt={`${project.name} image`}
-              className="h-full w-full rounded-xs object-cover"
+              className="h-fit w-full rounded-xs"
             />
           </div>
         </div>

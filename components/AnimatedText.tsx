@@ -4,55 +4,56 @@ import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { useRef } from "react"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
-gsap.registerPlugin(useGSAP, ScrollTrigger)
+import SplitText from "gsap/SplitText"
+import clsx from "clsx"
+
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText)
 
 type Props = {
-  text: string
   className?: string
   delay?: number
   isOnScroll?: boolean
   duration?: number
+  children: React.ReactNode
 }
 
 export default function AnimatedText({
-  text,
   className,
-  delay = 0,
+  delay,
   isOnScroll = false,
   duration = 1,
+  children,
 }: Props) {
-  const containerRef = useRef<HTMLSpanElement>(null)
-
+  const containerRef = useRef<HTMLDivElement>(null)
   useGSAP(
     () => {
-      gsap.to(".char", {
-        y: 0,
-        opacity: 1,
-        duration: duration,
-        ease: "ease",
-        delay: delay,
-        scrollTrigger: isOnScroll
-          ? {
-              trigger: containerRef.current,
-              start: "bottom bottom",
-              toggleActions: "play none none none",
-              once: true,
-            }
-          : null,
+      document.fonts.ready.then(() => {
+        const split = SplitText.create(containerRef.current, {
+          type: "words",
+        })
+
+        gsap.from(split.words, {
+          y: "100%",
+          opacity: 0,
+          duration: duration,
+          ease: "ease",
+          delay: delay,
+          stagger: 0.02,
+          scrollTrigger: isOnScroll
+            ? {
+                trigger: containerRef.current,
+                once: true,
+              }
+            : null,
+        })
       })
     },
-    { scope: containerRef, dependencies: [text] },
+    { scope: containerRef },
   )
 
   return (
-    <span ref={containerRef} className={className} aria-label={text}>
-      {text.split("").map((char, index) => (
-        <span key={index} className="inline-block overflow-hidden align-bottom">
-          <span className="char inline-block translate-y-full opacity-0">
-            {char === " " ? "\u00A0" : char}
-          </span>
-        </span>
-      ))}
-    </span>
+    <div ref={containerRef} className={clsx("overflow-hidden", className)}>
+      {children}
+    </div>
   )
 }

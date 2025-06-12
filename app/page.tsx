@@ -7,7 +7,7 @@ import Projects from "@/components/Projects"
 import clsx from "clsx"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Description from "@/components/Discription"
+import About from "@/components/About"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollSmoother, ScrollTrigger)
@@ -32,7 +32,7 @@ export default function HomePage() {
           <TCanvas />
         </div>
       </div>
-      <Description />
+      <About />
       <Projects />
       <section className="h-screen w-screen"></section>
       <section className="h-screen w-screen"></section>

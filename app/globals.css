@@ -33,5 +33,5 @@ body {
 }
 
 .text-heading{
-  @apply text-[12vw] sm:text-6xl md:text-[5rem] lg:text-8xl 2xl:text-9xl
+  @apply text-[12vw] w-fit sm:text-6xl md:text-[5rem] lg:text-8xl 2xl:text-9xl
 }
