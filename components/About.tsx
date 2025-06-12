@@ -10,11 +10,11 @@ export default function About() {
       <AnimatedText
         duration={0.5}
         delay={0.5}
-        className="text-7xl tracking-tighter"
+        className="text-5xl tracking-tighter md:text-6xl lg:text-7xl"
       >
         Over 1 year of experience,
-        <br /> contributing to open-source
-        <br /> on GitHub
+        <br className="hidden md:block" /> contributing to open-source
+        <br className="hidden md:block" /> on GitHub
       </AnimatedText>
       <div className="ml-auto flex flex-col gap-10 md:w-[50rem]">
         <AnimatedText
@@ -22,7 +22,7 @@ export default function About() {
           delay={0.5}
           className="inline-block text-sm md:text-xl"
         >
-          Hi, I’m Ako Mawlood — a freelance front-end developer from the
+          Hi, I&apos;m Ako Mawlood — a freelance front-end developer from the
           Kurdistan Region. I build fast, modern websites with React, Next.js,
           and TypeScript, focusing on clean design and smooth user experiences.
         </AnimatedText>

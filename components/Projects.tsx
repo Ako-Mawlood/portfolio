@@ -139,7 +139,7 @@ export default function Project() {
           </div>
           <div
             id="image-container"
-            className="relative h-fit overflow-hidden md:h-[20rem] lg:max-w-4/12"
+            className="relative hidden h-fit overflow-hidden md:block md:h-[20rem] lg:max-w-4/12"
           >
             <Image
               id={project.id}
