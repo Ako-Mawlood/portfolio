@@ -57,51 +57,29 @@ export default function Hero() {
     <section className="pointer-events-none relative top-0 left-0 z-10 flex h-screen w-screen flex-col items-start justify-between p-5 text-sm text-white md:p-10">
       <div className="pointer-events-auto flex w-full items-start justify-between">
         <div className="gap-o.5 flex flex-col">
-          <AnimatedText
-            text="Hello, my name is"
-            className="font-bold"
-            delay={6.5}
-          />
+          <AnimatedText className="font-bold">Hello, my name is</AnimatedText>
           <span>
-            <AnimatedText text="Ako M. Othman" delay={6.5} />
+            <AnimatedText>Ako M. Othman</AnimatedText>
           </span>
         </div>
 
         <div className="gap-o.5 pointer-events-auto hidden flex-col md:flex">
-          <Button href="#about" text="About" delay={6.5} />
-          <Button href="#projects" text="Projects" delay={6.5} />
-          <Button href="#experience" text="Experience" delay={6.5} />
-          <Button href="#contact" text="Contact" delay={6.5} />
+          <Button href="#about">About</Button>
+          <Button href="#projects">Projects</Button>
+          <Button href="#experience">Experience</Button>
+          <Button href="#contact">Contact</Button>
         </div>
         <div className="gap-o.5 pointer-events-auto flex flex-col">
-          <Button
-            href="https://github.com/Ako-Mawlood"
-            text="Github"
-            delay={6.5}
-          />
-          <Button
-            href="https://www.linkedin.com/in/ako-mawlood-1b8646252/"
-            text="LinkedIn"
-            delay={6.5}
-          />
-          <Button
-            href="https://x.com/AkoMawlood"
-            text="X (Twitter)"
-            delay={6.5}
-          />
-          <Button
-            href="https://leetcode.com/u/Ako-Mawlood/"
-            text="LeetCode"
-            delay={6.5}
-          />
+          <Button href="https://github.com/Ako-Mawlood">Github</Button>
+          <Button href="https://www.linkedin.com/in/ako-mawlood-1b8646252/">
+            LinkedIn
+          </Button>
+          <Button href="https://x.com/AkoMawlood">X (Twitter)</Button>
+          <Button href="https://leetcode.com/u/Ako-Mawlood/">Leetcode</Button>
         </div>
 
         <div className="gap-o.5 pointer-events-auto flex flex-col">
-          <AnimatedText
-            text="Freelance ability"
-            className="font-bold"
-            delay={6.5}
-          />
+          <AnimatedText className="font-bold">Freelance ability</AnimatedText>
           <div className="flex items-center justify-start gap-1.5">
             <div
               className={clsx(
@@ -109,20 +87,14 @@ export default function Hero() {
                 { "opacity-100": isVisible, "opacity-0": !isVisible },
               )}
             ></div>
-            <AnimatedText
-              text="Limited"
-              className="pb-1 text-center"
-              delay={6.5}
-            />
+            <AnimatedText className="pb-1 text-center">Limited</AnimatedText>
           </div>
         </div>
       </div>
       <div className="absolute top-1/2 left-1/2 h-fit w-fit -translate-x-1/2 -translate-y-1/2 items-center text-[12vw] sm:text-6xl md:text-[5rem] lg:text-8xl 2xl:text-9xl">
-        <AnimatedText
-          text="{It's about}"
-          delay={6.5}
-          className="self-start text-sm"
-        />
+        <AnimatedText className="self-start text-sm">
+          {"{It's about}"}
+        </AnimatedText>
         <h1 id="heading1" className="mr-[50px] w-fit">
           Mindfulness,
         </h1>
@@ -137,25 +109,19 @@ export default function Hero() {
         <div className="gap-o.5 pointer-events-auto flex flex-col items-start">
           <Button
             href="https://cal.com/ako-mawlood-wwv8yg"
-            text="Book a meeting"
             className="px-0 text-sm font-bold"
-            delay={6.5}
-          />
-          <AnimatedText
-            text="ako.mawlood01@gmail.com"
-            delay={6.5}
-            className="hidden sm:block"
-          />
+          >
+            Book a meeting
+          </Button>
+          <AnimatedText className="hidden sm:block">
+            ako.mawlood01@gmail.com
+          </AnimatedText>
         </div>
-        <p className="pointer-events-auto hidden w-62 md:block">
-          <AnimatedText
-            delay={6.5}
-            text="I collaborate with others to build things we couldn&rsquo;t create
+        <AnimatedText className="pointer-events-auto hidden w-62 md:block">
+          I collaborate with others to build things we couldn&rsquo;t create
           alone. It&rsquo;s about sharing ideas, skills, and passion to deliver
           meaningful work together.
-        "
-          />
-        </p>
+        </AnimatedText>
         <div
           className={clsx(
             "animate-fade-in pointer-events-auto right-10 bottom-10 flex transform flex-col items-center gap-2 transition-all duration-1000",
@@ -169,12 +135,10 @@ export default function Hero() {
         </div>
 
         <div className="gap-o.5 pointer-events-auto flex flex-col">
-          <AnimatedText
-            text="Based in Erbil, Iraq"
-            className="font-bold"
-            delay={6.5}
-          />
-          <AnimatedText text={`${time} UTC+3`} delay={6.5} />
+          <AnimatedText className="font-bold">
+            Based in Erbil, Iraq
+          </AnimatedText>
+          <AnimatedText>{time} UTC+3</AnimatedText>
         </div>
       </div>
     </section>
